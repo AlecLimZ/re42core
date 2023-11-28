@@ -1,20 +1,20 @@
 /*******************************************************
 
-* Program : ft_isdigit.c
+* Program : ft_isprint.c
 
-* Creation Date : Fri Nov  3 15:12:30 2023
+* Creation Date : Tue Nov 28 11:59:07 2023
 
 * Author : Alec Lim
 
-* Last Modified : Tue Nov 28 10:32:50 2023
+* Last Modified : Tue Nov 28 12:19:45 2023
 
 * Created By : Alec Lim
 
 *******************************************************/
 
-int	ft_isdigit(int c)
+int	ft_isprint(int c)
 {
-	if (c >= '0' && c <= '9')
-		return (2048);
+	if (c >= 32 && c < 127)
+		return (16384);
 	return (0);
 }

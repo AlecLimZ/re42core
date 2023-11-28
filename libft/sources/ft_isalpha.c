@@ -6,13 +6,16 @@
 
 * Author : Alec Lim
 
-* Last Modified : Fri Nov  3 15:12:10 2023
+* Last Modified : Tue Nov 28 10:30:12 2023
 
 * Created By : Alec Lim
 
 *******************************************************/
 
-int ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-	return (((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) ? 1024 : 0);
+	if ((c >= 'a' && c <= 'z')
+		|| (c >= 'A' && c <= 'Z'))
+		return (1024);
+	return (0);
 }

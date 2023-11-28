@@ -1,9 +1,10 @@
 NAME		=	libft.a
+INC         =   -I$(PWD)
 SDIR		=	sources
 SRC			=	$(wildcard $(SDIR)/*.c)
 ODIR		=	object
 OBJ			=	$(patsubst $(SDIR)/%.c,  $(ODIR)/%.o, $(SRC))
-CFLAGS		+=	-Wall -Werror -Wextra -std=c99
+CFLAGS		+=	-Wall -Werror -Wextra
 
 all:			$(ODIR) $(NAME)
 
@@ -11,7 +12,7 @@ $(ODIR):
 				mkdir $@
 
 $(ODIR)/%.o:	$(SDIR)/%.c
-				$(CC) $(CFLAGS) -c -o $@ $<
+				$(CC) $(CFLAGS) -c -o $@ $< $(INC)
 
 $(NAME):		$(OBJ)
 				ar -v -q $@ $^
