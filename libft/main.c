@@ -6,7 +6,7 @@
 
 * Author : Alec Lim
 
-* Last Modified : Tue Nov 28 14:19:37 2023
+* Last Modified : Wed Nov 29 13:50:37 2023
 
 * Created By : Alec Lim
 
@@ -86,8 +86,8 @@ int	main(void)
         isprint(i) == ft_isprint(i) ? printf("Ok\n") : printf("KO [%d] - S:%d - L:%d\n", i, isprint(i), ft_isprint(i));
     }
 	printf("====ft_memset====\n");
-    char str1[10] = "hihi";
-    char str2[10] = "hihi";
+    char str1[99] = "hihi";
+    char str2[99] = "hihi";
     strcmp(str1, str2) == 0 ? printf("Ok\n") : printf("KO S:%s - L:%s\n", str1, str2);
     memset(str1, 0, 10);
     ft_memset(str2, 0, 10);
@@ -118,9 +118,24 @@ int	main(void)
     printf("L: %s\n", (char*)memcpy(str1, "!!!!", 1));
     printf("S: %s\n", (char*)ft_memcpy(str2, "!!!!", 1));
     strncmp(str1, str2, 10) == 0 ? printf("Ok\n") : printf("KO S:%s - L:%s\n", str1, str2);
-	printf("====ft_memove====\n");
+
+	printf("====ft_memmove====\n");
+    printf("L:%s\n", (char*)memmove(str1, "hello", 3));
+    printf("S:%s\n", (char*)ft_memmove(str2, "hello", 3));
+    printf("str1:%s, str2:%s\n", str1, str2);
+    strncmp(str1, str2, 10) == 0 ? printf("Ok\n") : printf("KO S:%s - L:%s\n", str1, str2);
+    
+    printf("L:%s\n", (char*)memmove(str1, "Great", 5));
+    printf("S:%s\n", (char*)ft_memmove(str2, "Great", 5));
+    printf("str1:%s, str2:%s\n", str1, str2);
+    strncmp(str1, str2, 10) == 0 ? printf("Ok\n") : printf("KO S:%s - L:%s\n", str1, str2);
+
 	printf("====ft_strlcpy====\n");
+    printf("S:%ld\n", ft_strlcpy(str2, "L@12", 7));
+    printf("str2:%s\n", str2);
 	printf("====ft_strlcat====\n");
+    printf("S:%ld\n", ft_strlcat(str2, "N3WALOL", 7));
+    printf("str2:%s\n", str2);
 	printf("====ft_toupper====\n");
 	printf("====ft_tolower====\n");
 	printf("====ft_strchr====\n");
