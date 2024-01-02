@@ -18,6 +18,20 @@
 #include <ctype.h>
 #include "libft.h"
 
+char	ft_smapi(unsigned int index, char c)
+{
+	if (index % 2 == 0)
+		return (ft_toupper(c));
+	return ('#');
+
+}
+
+void	ft_si(unsigned int index, char *s)
+{
+	if (s[index] == '#')
+		s[index] = '|';
+}
+
 int	main(void)
 {
 	char	lol[10];
@@ -41,7 +55,7 @@ int	main(void)
 	isalpha(cs) == ft_isalpha(cs) ? printf("Ok\n") : printf("KO %c - S:%d - L:%d\n", cs, isalpha(cs), ft_isalpha(cs));
 	cs = '7';
 	isalpha(cs) == ft_isalpha(cs) ? printf("Ok\n") : printf("KO %c - S:%d - L:%d\n", cs, isalpha(cs), ft_isalpha(cs));
-	cs = 255;
+	cs = (char)256;
 	isalpha(cs) == ft_isalpha(cs) ? printf("Ok\n") : printf("KO %c - S:%d - L:%d\n", cs, isalpha(cs), ft_isalpha(cs));
 	cs = '\0';
 	isalpha(cs) == ft_isalpha(cs) ? printf("Ok\n") : printf("KO %c - S:%d - L:%d\n", cs, isalpha(cs), ft_isalpha(cs));
@@ -169,10 +183,65 @@ int	main(void)
 	strcmp(ft_strrchr("great", '\0'), strrchr("great", '\0')) == 0 ? printf("OK\n") : printf("KO\n");
 	printf("1:%s - %s\n", ft_strrchr("great", '\0'), strrchr("great", '\0'));
 	printf("====ft_strncmp====\n");
+	ft_strncmp("hihi", "hihi", 4) == strncmp("hihi", "hihi", 4) ? printf("OK\n") : printf("KO1\n");
+	ft_strncmp("hihi", "hihi", 2) == strncmp("hihi", "hihi", 2) ? printf("OK\n") : printf("KO2\n");
+	ft_strncmp("hihi", "NULL", 2) == strncmp("hihi", "NULL", 2) ? printf("OK\n") : printf("KO3\n");
 	printf("====ft_memchr====\n");
+	memcpy(lol, "test", 4);
+	strcmp(ft_memchr(lol, 's', 4), memchr(lol, 's', 4)) == 0 ? printf("OK\n") : printf("KO1\n");
+	!ft_memchr(lol, 's', 2) && !memchr(lol, 's', 2) ? printf("OK\n") : printf("KO2\n");
+	strcmp(ft_memchr(lol, 't', 1), memchr(lol, 't', 1)) == 0 ? printf("OK\n") : printf("KO3\n");
 	printf("====ft_memcmp====\n");
+	ft_memcmp("hihi", "hihi", 4) == memcmp("hihi", "hihi", 4) ? printf("OK\n") : printf("KO1\n");
+	ft_memcmp("hihi", "hipi", 3) == memcmp("hihi", "hipi", 3) ? printf("OK\n") : printf("KO2\n");
+	ft_memcmp("hihi", "hipi", 7) == memcmp("hihi", "hipi", 7) ? printf("OK\n") : printf("KO3\n");
 	printf("====ft_strnstr====\n");
+	strcmp(ft_strnstr("abcdef", "def", 6), strnstr("abcdef", "def", 6)) == 0 ? printf("OK\n") : printf("KO1\n");
+	!ft_strnstr("abcdef", "daf", 7) && !strnstr("abcdef", "daf", 7) ? printf("OK\n") : printf("KO2\n");
+	strcmp(ft_strnstr("abcdef", "", 7), strnstr("abcdef", "", 7)) == 0 ? printf("OK\n") : printf("KO2\n");
 	printf("====ft_atoi====\n");
-
+	atoi("-23fasf") == ft_atoi("-23fasf") ? printf("OK\n") : printf("KO1\n");
+	atoi("+23fasf") == ft_atoi("+23fasf") ? printf("OK\n") : printf("KO2\n");
+	atoi("++23fasf") == ft_atoi("++23fasf") ? printf("OK\n") : printf("KO3\n");
+	atoi("  +2147483648") == ft_atoi("  +2147483648") ? printf("OK\n") : printf("KO3\n");
+	printf("====ft_calloc====\n");
+	char *lolalec = ft_calloc(10, sizeof(char));
+	free(lolalec);
+	printf("===ft_strdup====\n");
+	char *testalec = ft_strdup("hello");
+	printf("%s\n", testalec);
+	free(testalec);
+	printf("===ft_substr===\n");
+	testalec = ft_substr("hihi", 1, 3);
+	printf("ft_substr:%s|\n", testalec);
+	free(testalec);
+	printf("=====ft_strjoin=====\n");
+	testalec = ft_strjoin("hichar", "world");
+	printf("ft_strjoin:%s|\n", testalec);
+	free(testalec);
+	printf("=====ft_strtrim=====\n");
+	testalec = ft_strtrim("How are you?", "aeiou");
+	printf("ft_strtrim:%s\n", testalec);
+	free(testalec);
+	printf("=====ft_split=====\n");
+	char **OKOK = ft_split("testokoewkjlrhsdf", 'o');
+	int ii = 0;
+	while (OKOK[ii] != NULL)
+	{
+		printf("%s\n", OKOK[ii]);
+		free(OKOK[ii++]);
+	}
+	free(OKOK);
+	printf("=====ft_itoa=====\n");
+	testalec = ft_itoa(-123);
+	printf("ft_itoa:%s\n", testalec);
+	free(testalec);
+	printf("=====ft_strmapi=====\n");
+	testalec = ft_strmapi("hsdahfhwerlkj", ft_smapi);
+	printf("ft_strmapi:%s\n", testalec);
+	printf("=====ft_striteri=====\n");
+	ft_striteri(testalec, ft_si);
+	printf("ft_striteri:%s\n", testalec);
+	free(testalec);
 	return (0);
 }

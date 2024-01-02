@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leng-chu <leng-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 20:25:55 by leng-chu          #+#    #+#             */
-/*   Updated: 2024/01/02 20:25:59 by leng-chu         ###   ########.fr       */
+/*   Created: 2024/01/02 20:24:29 by leng-chu          #+#    #+#             */
+/*   Updated: 2024/01/02 20:24:30 by leng-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void   ft_bzero(void *s, size_t n)
+int	ft_atoi(const char *str)
 {
-    char    *c;
-    long    i;
-    long    nn;
+	int	p;
+	int s;
+	int t;
 
-    c = (char*)s;
-    i = -1;
-    nn = n;
-    while (++i < nn)
-        c[i] = 0;
+	p = 0;
+	s = 1;
+	t = 0;
+	if (!str)
+		return (0);
+	while (str[p] && ft_isspace(str[p]))
+		p++;
+	if (str[p] == '-' || str[p] == '+')
+		if (str[p++] == '-')
+			s = -1;
+	if (!ft_isdigit(str[p]))
+		return (0);
+	while (str[p] && ft_isdigit(str[p]))
+		t = t * 10 + (str[p++] - '0');
+	return (t * s);
 }

@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: leng-chu <leng-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/02 20:25:55 by leng-chu          #+#    #+#             */
-/*   Updated: 2024/01/02 20:25:59 by leng-chu         ###   ########.fr       */
+/*   Created: 2024/01/02 20:24:42 by leng-chu          #+#    #+#             */
+/*   Updated: 2024/01/02 20:24:43 by leng-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void   ft_bzero(void *s, size_t n)
+int	ft_isspace(int c)
 {
-    char    *c;
-    long    i;
-    long    nn;
+	unsigned char	i;
 
-    c = (char*)s;
-    i = -1;
-    nn = n;
-    while (++i < nn)
-        c[i] = 0;
+	i = c;
+	if (i == '\t' || i == '\n' || i == '\f' || i == '\r' || i == ' ')
+		return (1);
+	return (0);
 }
