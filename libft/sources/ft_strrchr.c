@@ -6,7 +6,7 @@
 /*   By: leng-chu <leng-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:26:54 by leng-chu          #+#    #+#             */
-/*   Updated: 2024/01/02 20:26:55 by leng-chu         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:56:43 by leng-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int i;
+	int	i;
 
 	i = ft_strlen(s) + 1;
 	if (!s || c < 0)

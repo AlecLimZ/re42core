@@ -6,7 +6,7 @@
 /*   By: leng-chu <leng-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 21:10:12 by leng-chu          #+#    #+#             */
-/*   Updated: 2024/01/02 21:22:08 by leng-chu         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:46:19 by leng-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_itoa(int n)
 		n *= -1;
 	}
 	len = ft_numlen(n) + m;
-	new = (char*)malloc(sizeof(char) * (len + 1));
+	new = (char *)malloc(sizeof(char) * (len + 1));
 	if (!new)
 		return (NULL);
 	new[len] = '\0';

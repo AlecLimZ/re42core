@@ -6,7 +6,7 @@
 /*   By: leng-chu <leng-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 20:24:29 by leng-chu          #+#    #+#             */
-/*   Updated: 2024/01/02 20:24:30 by leng-chu         ###   ########.fr       */
+/*   Updated: 2024/01/03 14:43:40 by leng-chu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int	ft_atoi(const char *str)
 {
 	int	p;
-	int s;
-	int t;
+	int	s;
+	int	t;
 
 	p = 0;
 	s = 1;

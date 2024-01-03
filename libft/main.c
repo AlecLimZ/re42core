@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include "libft.h"
+#include <fcntl.h>
 
 char	ft_smapi(unsigned int index, char c)
 {
@@ -32,7 +33,28 @@ void	ft_si(unsigned int index, char *s)
 		s[index] = '|';
 }
 
-int	main(void)
+void	ft_del(void *content)
+{
+	printf("Content \"%s\" to be deleted\n", content);
+	//free(content);
+}
+
+void	ft_content(void *content)
+{
+	printf("ALEC: %s\n", content);
+}
+
+void	*ft_retcontent(void *content)
+{
+	char	*chk;
+
+	chk = (char *)content;
+	if (ft_tolower(chk[0]) == 'h')
+		return ("iamH");
+	return ("iamNOTh");
+}
+
+void test_1(void)
 {
 	char	lol[10];
 
@@ -224,7 +246,7 @@ int	main(void)
 	printf("ft_strtrim:%s\n", testalec);
 	free(testalec);
 	printf("=====ft_split=====\n");
-	char **OKOK = ft_split("testokoewkjlrhsdf", 'o');
+	char **OKOK = ft_split("otestokoewkjlrhsdfo", 'o');
 	int ii = 0;
 	while (OKOK[ii] != NULL)
 	{
@@ -243,5 +265,67 @@ int	main(void)
 	ft_striteri(testalec, ft_si);
 	printf("ft_striteri:%s\n", testalec);
 	free(testalec);
+	printf("===ft_putchar_fd===\n");
+	int fd = open("foo.txt", O_RDWR | O_CREAT | O_APPEND, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+	if (fd < 0)
+		printf("Failed open foo.txt\n");
+	ft_putchar_fd('@', fd);
+	printf("OK\n");
+	printf("===ft_putstr_fd===\n");
+	ft_putstr_fd("42KL", fd);
+	printf("OK\n");
+	printf("===ft_putendl_fd===\n");
+	ft_putendl_fd("Zhen", fd);
+	printf("OK\n");
+	printf("===ft_putnbr_fd===\n");
+	printf("OK\n");
+	ft_putnbr_fd(777, fd);
+	ft_putnbr_fd(-999, fd);
+	close(fd);
+}
+
+void	ft_print_lst(t_list *head)
+{
+	t_list *p;
+
+	p = head;
+	while (p->next != NULL)
+	{
+		printf("%s\n", p->content);
+		p = p->next;
+	}
+	printf("%s\n", p->content);
+}
+
+void	test2()
+{
+	t_list	*test;
+	t_list	*first;
+	t_list	*second;
+	t_list	*last;
+
+	test = ft_lstnew("hahhaa");
+	first = ft_lstnew("okokok");
+	second = ft_lstnew("hi world");
+	ft_lstadd_front(&first, test);
+	ft_lstadd_front(&test, second);
+	ft_print_lst(second);
+	printf("total list1:%d\n", ft_lstsize(second));
+	last = ft_lstlast(second);
+	printf("last:%s\n", last->content);
+	ft_lstadd_back(&second, ft_lstnew("i am the last"));
+	printf("total list2:%d\n", ft_lstsize(second));
+	ft_print_lst(second);
+	ft_lstiter(second, ft_content);
+	t_list *MYALEC = ft_lstmap(second, ft_retcontent, ft_del);
+	ft_print_lst(MYALEC);
+	ft_lstclear(&second, ft_del);
+	ft_lstclear(&MYALEC, ft_del);
+}
+
+int	main(void)
+{
+	//test_1();
+	test2();
 	return (0);
 }

@@ -1,31 +1,29 @@
-/*******************************************************
-
-* Program : ft_memcpy.c
-
-* Creation Date : Tue Nov 28 13:53:41 2023
-
-* Author : Alec Lim
-
-* Last Modified : Tue Nov 28 18:01:39 2023
-
-* Created By : Alec Lim
-
-*******************************************************/
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: leng-chu <leng-chu@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/03 14:48:12 by leng-chu          #+#    #+#             */
+/*   Updated: 2024/01/03 14:59:19 by leng-chu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
-void    *ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-    long        i;
-    long        nn;
-    const char  *s2;
-    char        *s1;
+	long		i;
+	long		nn;
+	const char	*s2;
+	char		*s1;
 
-    i = -1;
-    nn = n;
-    s1 = (char *)dest;
-    s2 = (const char*)src;
-    while (++i < nn)
-        s1[i] = s2[i];
-    return (s1);
+	i = -1;
+	nn = n;
+	s1 = (char *)dest;
+	s2 = (const char *)src;
+	while (++i < nn)
+		s1[i] = s2[i];
+	return (s1);
 }
