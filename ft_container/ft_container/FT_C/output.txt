@@ -1,0 +1,14 @@
+unhandled exception (file: tests/map/at.cpp, line: 30)
+At: 64 (file: tests/map/at.cpp, line: 41)
+At: World (file: tests/map/at.cpp, line: 56)
+unhandled exception (file: tests/map/at.cpp, line: 73)
+unhandled exception (file: tests/map/at.cpp, line: 86)
+At: 64 (file: tests/map/at.cpp, line: 99)
+At: World (file: tests/map/at.cpp, line: 116)
+unhandled exception (file: tests/map/at.cpp, line: 133)
+========================================
+No leak detected
+========================================
+========================================
+Every objects destroyed
+========================================
