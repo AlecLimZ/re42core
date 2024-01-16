@@ -30,9 +30,9 @@ Server::Server(std::string port, std::string _password)
 	commands["WHO"]		=	&Server::who;
 	commands["MEMBER"]	=	&Server::member;
 	commands["LIST"]	=	&Server::list;
-	commands["QUIT"] 	=	&Server::quit;
-	commands["NICK"] 	=	&Server::nick;
-	commands["PASS"] 	=	&Server::pass;
+	commands["QUIT"]	=	&Server::quit;
+	commands["NICK"]	=	&Server::nick;
+	commands["PASS"]	=	&Server::pass;
 	commands["USER"]	=	&Server::user;
 	commands["PRIVMSG"]	=	&Server::privmsg;
 	commands["JOIN"]	=	&Server::join;
